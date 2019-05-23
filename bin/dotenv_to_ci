@@ -2,44 +2,35 @@
 
 $LOAD_PATH.push File.expand_path('../../lib', __FILE__)
 
-require 'optparse'
+require 'commander/import'
 require 'dotenv_to_ci'
 
+program :name, 'dotenv_to_ci'
+program :version, DotenvToCI::VERSION
+program :description, 'Set environment variables on your CI provider'
 
-provider = ARGV.shift
-puts "provider: #{provider}"
+global_option('--verbose') { $verbose = true }
+default_command :help
 
-@options = nil
-if provider == "circleci"
-  @options = {
-    provider: provider
-  }
+command :circleci do |c|
+  c.syntax = 'dotenv_to_ci circleci'
+  c.description = 'Set environment variables on CircleCI'
+  c.option '-d', '--dotenvs STRING', String, 'Dotenv file name(s) (ex: .env, .env.secret)'
+  c.option '-T', '--token STRING', String, 'API token'
+  c.option '-V', '--vcs STRING', String, 'VCS (allowed: github, bitbucket)'
+  c.option '-u', '--username STRING', String, 'Username'
+  c.option '-p', '--project STRING', String, 'Project'
+  c.action do |args, options|
+    config = {
+      provider: 'circleci',
+      dotenvs: options.dotenvs,
+      token: options.token,
+      vcs: options.vcs,
+      username: options.username,
+      project: options.project
+    }
 
-  OptionParser.new do |opts|
-    opts.on("-v", "--verbose", "Show extra information") do
-      @options[:verbose] = true
-    end
-    opts.on("-dDOTENVS", "--dotenvs DOTENVS", "Dotenv file name(s) (ex: .env, .env.secret)") do |dotenvs|
-      @options[:dotenvs] = dotenvs
-    end
-    opts.on("-tToken", "--api-token TOKEN", "API token") do |token|
-      @options[:token] = token
-    end
-    opts.on("-vVCS", "--vcs VCS", "VCS (allowed: 'github')") do |vcs|
-      @options[:vcs] = vcs
-    end
-    opts.on("-u", "--username USERNAME", "Username") do |username|
-      @options[:username] = username
-    end
-    opts.on("-p", "--project PROJECT", "Project") do |project|
-      @options[:project] = project
-    end
-  end.parse!
-end
-
-if @options
-  dotenv_to_ci = DotenvToCI.new(@options)
-  dotenv_to_ci.run!
-else
-  puts "Need a command"
+    dotenv_to_ci = DotenvToCI::CircleCI.new(config)
+    dotenv_to_ci.run!
+  end
 end
