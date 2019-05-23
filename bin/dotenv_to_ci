@@ -1,0 +1,45 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.push File.expand_path('../../lib', __FILE__)
+
+require 'optparse'
+require 'dotenv_to_ci'
+
+
+provider = ARGV.shift
+puts "provider: #{provider}"
+
+@options = nil
+if provider == "circleci"
+  @options = {
+    provider: provider
+  }
+
+  OptionParser.new do |opts|
+    opts.on("-v", "--verbose", "Show extra information") do
+      @options[:verbose] = true
+    end
+    opts.on("-dDOTENVS", "--dotenvs DOTENVS", "Dotenv file name(s) (ex: .env, .env.secret)") do |dotenvs|
+      @options[:dotenvs] = dotenvs
+    end
+    opts.on("-tToken", "--api-token TOKEN", "API token") do |token|
+      @options[:token] = token
+    end
+    opts.on("-vVCS", "--vcs VCS", "VCS (allowed: 'github')") do |vcs|
+      @options[:vcs] = vcs
+    end
+    opts.on("-u", "--username USERNAME", "Username") do |username|
+      @options[:username] = username
+    end
+    opts.on("-p", "--project PROJECT", "Project") do |project|
+      @options[:project] = project
+    end
+  end.parse!
+end
+
+if @options
+  dotenv_to_ci = DotenvToCI.new(@options)
+  dotenv_to_ci.run!
+else
+  puts "Need a command"
+end
