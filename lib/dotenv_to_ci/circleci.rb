@@ -53,7 +53,7 @@ module DotenvToCI
         }
 
         if $verbose
-          puts "Setting key=#{k}} value=#{v}"
+          puts "Setting key=#{k} value=#{v}"
         end
 
         resp = RestClient::Request.execute(
