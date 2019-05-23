@@ -7,6 +7,8 @@
 The laziest way to transfer a environment variables from a `.env` file to a CI provider 💪
 
 ## Example 🤯
+Runs `circleci` to upload the contents of `.env.test` to the `joshdholtz/fastlane-circleci-test` GitHub project on [CircleCI](http://circleci.com/) 🚀
+
 ```sh
 $ dotenv_to_ci circleci -V github -u joshdholtz -p "fastlane-circleci-test" -d ".env.test" --verbose
 Setting key=DISABLE_HOOKS} value=true
@@ -25,6 +27,10 @@ Setting key=FL_HOCKEY_NOTES_TYPE} value=1
 Successfully added: DISABLE_HOOKS, FASTLANE_TEAM_ID, AWS_SNS_ACCESS_KEY, AWS_SNS_SECRET_ACCESS_KEY, AWS_SNS_REGION, AWS_SNS_PLATFORM_GCM_API_KEY, SIGH_APP_IDENTIFIER, SIGH_USERNAME, SIGH_TEAM_ID, CORDOVA_IOS_TEAM_ID, FASTLANE_PASSWORD, FL_HOCKEY_API_TOKEN, FL_HOCKEY_NOTES_TYPE
 ```
 
+And the results on [CircleCI](http://circleci.com/)! 🎊🎉
+
+![CircleCI Screenshot](https://raw.githubusercontent.com/joshdholtz/dotenv_to_ci/screenshots/dotenv_to_ci_circleci.png)
+
 ## Installation 🔨 
 
 ```sh
@@ -39,8 +45,29 @@ gem "dotenv_to_ci"
 ```
 
 ## Options 🤔 
+
 ```sh
-$: dotenv_to_ci circleci --help
+$ dotenv_to_ci --help
+  NAME:
+    dotenv_to_ci
+  DESCRIPTION:
+    Set environment variables on your CI provider
+  COMMANDS:
+    circleci Set environment variables on CircleCI
+    help     Display global or [command] help documentation
+  GLOBAL OPTIONS:
+    --verbose
+    -h, --help
+        Display help documentation
+    -v, --version
+        Display version information
+    -t, --trace
+        Display backtrace when an error occurs
+```
+
+### CircleCI
+```sh
+$ dotenv_to_ci circleci --help
   NAME:
     circleci
   SYNOPSIS:
