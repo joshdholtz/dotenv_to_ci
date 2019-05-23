@@ -12,18 +12,18 @@ Runs `circleci` to upload the contents of `.env.test` to the `joshdholtz/fastlan
 ```sh
 $ dotenv_to_ci circleci -V github -u joshdholtz -p "fastlane-circleci-test" -d ".env.test" --verbose
 Setting key=DISABLE_HOOKS} value=true
-Setting key=FASTLANE_TEAM_ID} value=12345321234
-Setting key=AWS_SNS_ACCESS_KEY} value=less secrety but you kow
-Setting key=AWS_SNS_SECRET_ACCESS_KEY} value=sshhhhhh
-Setting key=AWS_SNS_REGION} value=us-east-1
-Setting key=AWS_SNS_PLATFORM_GCM_API_KEY} value=a key you dont need to see
-Setting key=SIGH_APP_IDENTIFIER} value=com.app.ios
-Setting key=SIGH_USERNAME} value=dontenable2fa@email.com
-Setting key=SIGH_TEAM_ID} value=324324324
-Setting key=CORDOVA_IOS_TEAM_ID} value=324324324
-Setting key=FASTLANE_PASSWORD} value=fastlaneisthebest
-Setting key=FL_HOCKEY_API_TOKEN} value=riphockeyiwillmissyou
-Setting key=FL_HOCKEY_NOTES_TYPE} value=1
+Setting key=FASTLANE_TEAM_ID value=12345321234
+Setting key=AWS_SNS_ACCESS_KEY value=less secrety but you kow
+Setting key=AWS_SNS_SECRET_ACCESS_KEY value=sshhhhhh
+Setting key=AWS_SNS_REGION value=us-east-1
+Setting key=AWS_SNS_PLATFORM_GCM_API_KEY value=a key you dont need to see
+Setting key=SIGH_APP_IDENTIFIER value=com.app.ios
+Setting key=SIGH_USERNAME value=dontenable2fa@email.com
+Setting key=SIGH_TEAM_ID value=324324324
+Setting key=CORDOVA_IOS_TEAM_ID value=324324324
+Setting key=FASTLANE_PASSWORD value=fastlaneisthebest
+Setting key=FL_HOCKEY_API_TOKEN value=riphockeyiwillmissyou
+Setting key=FL_HOCKEY_NOTES_TYPE value=1
 Successfully added: DISABLE_HOOKS, FASTLANE_TEAM_ID, AWS_SNS_ACCESS_KEY, AWS_SNS_SECRET_ACCESS_KEY, AWS_SNS_REGION, AWS_SNS_PLATFORM_GCM_API_KEY, SIGH_APP_IDENTIFIER, SIGH_USERNAME, SIGH_TEAM_ID, CORDOVA_IOS_TEAM_ID, FASTLANE_PASSWORD, FL_HOCKEY_API_TOKEN, FL_HOCKEY_NOTES_TYPE
 ```
 
