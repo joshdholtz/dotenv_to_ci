@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/fastlane/fastlane/blob/master/LICENSE)
 [![Gem](https://img.shields.io/gem/v/dotenv_to_ci.svg?style=flat)](https://rubygems.org/gems/dotenv_to_ci)
 
-The laziest way to transfer a environment variables from a `.env` file to a CI provider 💪
+The laziest way to transfer a environment variables from a `.env` file to a CI provider 👋
 
 ## Example 🤯
 Runs `circleci` to upload the contents of `.env.test` to the `joshdholtz/fastlane-circleci-test` GitHub project on [CircleCI](http://circleci.com/) 🚀
@@ -43,6 +43,14 @@ or with [Bundler](https://bundler.io/)
 source "https://rubygems.org"
 gem "dotenv_to_ci"
 ```
+
+## Supported CIs 💪
+
+- [CircleCI](http://circleci.com/)
+
+#### WIP
+- [Travis CI](https://travis-ci.org/)
+- Any others you all may want 
 
 ## Options 🤔 
 
@@ -86,3 +94,11 @@ $ dotenv_to_ci circleci --help
     -p, --project STRING
         Project
 ```
+
+## Author
+
+Josh Holtz, me@joshholtz.com, [@joshdholtz](https://twitter.com/joshdholtz)
+
+## License
+
+_dotent_to_ci_ is available under the MIT license. See the LICENSE file for more info.
