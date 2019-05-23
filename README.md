@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/fastlane/fastlane/blob/master/LICENSE)
 [![Gem](https://img.shields.io/gem/v/dotenv_to_ci.svg?style=flat)](https://rubygems.org/gems/dotenv_to_ci)
 
-The laziest way to transfer a environment variables from a `.env` file to a CI provider 👋
+The laziest way to transfer environment variables from a `.env` file to a CI provider 👋
 
 ## Example 🤯
 Runs `circleci` to upload the contents of `.env.test` to the `joshdholtz/fastlane-circleci-test` GitHub project on [CircleCI](http://circleci.com/) 🚀
